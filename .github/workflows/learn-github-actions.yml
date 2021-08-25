@@ -17,3 +17,8 @@ jobs:
           aws-secret-access-key: ${{ secrets.ACEBOOK_SECRETS }}
           # aws-session-token: ${{ secrets.AWS_SESSION_TOKEN }} # if you have/need it
           aws-region: eu-west-2
+          aws-region: eu-west-2
+      - name: Copy files to the production website with the AWS CLI
+      - run: |
+          aws s3 sync .s3://team1-s3bucket/
+      
