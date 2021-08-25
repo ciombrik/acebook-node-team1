@@ -1,0 +1,15 @@
+version: 0.0
+os: linux
+
+files:
+  - source: /
+    destination: /code
+
+hooks:
+  BeforeInstall:
+    - location: aws_scripts/install_dependencies
+      timeout: 300
+      runas: root
+  ApplicationStop:
+    - location: aws_scripts/start_server
+      runas: root
