@@ -2,8 +2,8 @@ version: 0.0
 os: linux
 
 files:
-  - source: /
-    destination: /home/ec2-user/signal
+  - source: /app.js
+    destination: /var/www/html/
 permissions:
   - object: /
     pattern: "**"
