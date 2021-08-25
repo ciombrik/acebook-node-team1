@@ -4,15 +4,19 @@ os: linux
 files:
   - source: /
     destination: /code
-
+permissions:
+  - object: /
+    pattern: "**"
+    owner: ec2-user
+    group: ec2-user
 hooks:
   BeforeInstall:
     - location: aws_scripts/install_dependencies
       timeout: 300
-      runas: root
+      runas: ec2-user
   ApplicationStart:
     - location: aws_scripts/start_server
       timeout: 3600
   ApplicationStop:
     - location: aws_scripts/stop_server
-      runas: root
+      runas: ec2-user
