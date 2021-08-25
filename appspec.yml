@@ -12,7 +12,7 @@ hooks:
   AfterInstall:
     - location: aws_scripts/install_dependencies
       timeout: 300
-      runas: ec2-user
+      runas: ec2-userls
   ApplicationStart:
     - location: aws_scripts/start_server
       timeout: 3600
