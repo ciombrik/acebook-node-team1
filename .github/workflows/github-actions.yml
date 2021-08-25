@@ -20,6 +20,7 @@ jobs:
         aws-region: eu-west-2
 
     - name: Copy files to the production website with the AWS CLI
-      run:  rm -rf node_modules
-      run:  zip -r acebook.zip .
-      run:  aws s3 cp ./acebook.zip s3://team1-s3bucket/
+      run: | 
+        rm -rf node_modules
+        zip -r acebook.zip .
+        aws s3 cp ./acebook.zip s3://team1-s3bucket/
