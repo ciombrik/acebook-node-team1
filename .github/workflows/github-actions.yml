@@ -21,7 +21,7 @@ jobs:
 
     - name: Copy files to the production website with the AWS CLI
       run: | 
-        npm install
+        rm -rf node_modules
         zip -r acebook.zip .
         aws s3 cp ./acebook.zip s3://team1-s3bucket/
 
