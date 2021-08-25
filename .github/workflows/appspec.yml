@@ -8,8 +8,8 @@ jobs:
       - uses: actions/setup-node@v2
         with:
           node-version: '14'
-      - run: npm install -g bats
-      - run: bats -v
+      # - run: npm install -g bats
+      # - run: bats -v
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v1
         with:
@@ -18,10 +18,9 @@ jobs:
           # aws-session-token: ${{ secrets.AWS_SESSION_TOKEN }} # if you have/need it
           aws-region: eu-west-2
       - name: Copy files to the production website with the AWS CLI
-        run: | 
-          rm -rf node_modules
-          zip -r acebook.zip .
-          aws s3 sync acebook.zip s3://team1-s3bucket/
+      - run:  rm -rf node_modules
+      - run:  zip -r acebook.zip .
+      - run:  aws s3 cp ./acebook.zip s3://team1-s3bucket/
 
           
       
